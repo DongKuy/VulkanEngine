@@ -11,19 +11,25 @@
 #include <glm/vec4.hpp>
 #include <glm/mat4x4.hpp>
 
+#define GLM_FORCE_RADIANS
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+
 #include <iostream>
 #include <fstream>
 #include <stdexcept>
 #include <algorithm>
+#include <chrono>
 #include <vector>
 #include <cstring>
 #include <cstdlib>
 #include <cstdint>
+#include <array>
 #include <optional>
 #include <set>
 
-const uint32_t WINDOWSIZE_WIDTH = 800;
-const uint32_t WINDOWSIZE_HEIGHT = 600;
+const uint32_t WINDOWSIZE_WIDTH = 1200;
+const uint32_t WINDOWSIZE_HEIGHT = 900;
 const int MAX_FRAMES_IN_FLIGHT = 2;
 
 #ifdef NDEBUG
@@ -70,5 +76,51 @@ static std::vector<char> readFile(const std::string& filename) {
 
 	return buffer;
 }
+
+struct Vertex {
+    glm::vec2 pos;
+    glm::vec3 color;
+
+    static VkVertexInputBindingDescription getBindingDescription() {
+        VkVertexInputBindingDescription bindingDescription{};
+        bindingDescription.binding = 0;
+        bindingDescription.stride = sizeof(Vertex);
+        bindingDescription.inputRate = VK_VERTEX_INPUT_RATE_VERTEX;
+
+        return bindingDescription;
+    }
+
+    static std::array<VkVertexInputAttributeDescription, 2> getAttributeDescriptions() {
+        std::array<VkVertexInputAttributeDescription, 2> attributeDescriptions{};
+
+        attributeDescriptions[0].binding = 0;
+        attributeDescriptions[0].location = 0;
+        attributeDescriptions[0].format = VK_FORMAT_R32G32_SFLOAT;
+        attributeDescriptions[0].offset = offsetof(Vertex, pos);
+
+        attributeDescriptions[1].binding = 0;
+        attributeDescriptions[1].location = 1;
+        attributeDescriptions[1].format = VK_FORMAT_R32G32B32_SFLOAT;
+        attributeDescriptions[1].offset = offsetof(Vertex, color);
+
+        return attributeDescriptions;
+    }
+};
+struct UniformBufferObject {
+    alignas(16) glm::mat4 model;
+    alignas(16) glm::mat4 view;
+    alignas(16) glm::mat4 proj;
+};
+
+const std::vector<Vertex> vertices = {
+    {{-0.5f, -0.5f}, {1.0f, 0.0f, 0.0f}},
+    {{0.5f, -0.5f}, {0.0f, 1.0f, 0.0f}},
+    {{0.5f, 0.5f}, {0.0f, 0.0f, 1.0f}},
+    {{-0.5f, 0.5f}, {1.0f, 1.0f, 1.0f}}
+};
+const std::vector<uint16_t> indices = {
+    0, 1, 2, 2, 3, 0
+};
+
 
 #include "Application.h"

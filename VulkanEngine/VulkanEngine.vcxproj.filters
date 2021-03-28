@@ -26,10 +26,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Application.h">
+    <ClInclude Include="AllHeader.h">
       <Filter>소스 파일\Main</Filter>
     </ClInclude>
-    <ClInclude Include="AllHeader.h">
+    <ClInclude Include="Application.h">
       <Filter>소스 파일\Main</Filter>
     </ClInclude>
   </ItemGroup>

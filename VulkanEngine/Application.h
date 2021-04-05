@@ -66,12 +66,17 @@ private:
 	void TransitionImageLayout(VkImage image, VkFormat format, VkImageLayout oldLayout, VkImageLayout newLayout);
 	void CopyBufferToImage(VkBuffer buffer, VkImage image, uint32_t width, uint32_t height);
 	void CreateTextureSampler();
-	VkImageView CreateImageView(VkImage image, VkFormat format);
+	VkImageView CreateImageView(VkImage image, VkFormat format, VkImageAspectFlags aspectFlags);
 
 	void CreateTextureImageView();
 
 	VkCommandBuffer BeginSingleTimeCommands();
 	void EndSingleTimeCommands(VkCommandBuffer commandBuffer);
+
+	void CreateDepthResources();
+	VkFormat FindSupportedFormat(const std::vector<VkFormat>& candidates, VkImageTiling tiling, VkFormatFeatureFlags features);
+	VkFormat FindDepthFormat();
+	bool HasStencilComponent(VkFormat format);
 private:
 	void InitWindow();
 	void InitVulkan();
@@ -134,5 +139,9 @@ private:
 	VkDeviceMemory	_textureImageMemory;
 	VkImageView		_textureImageView;
 	VkSampler		_textureSampler;
+
+	VkImage				_depthImage;
+	VkDeviceMemory		_depthImageMemory;
+	VkImageView			_depthImageView;
 
 };

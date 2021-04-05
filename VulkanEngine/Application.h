@@ -77,6 +77,8 @@ private:
 	VkFormat FindSupportedFormat(const std::vector<VkFormat>& candidates, VkImageTiling tiling, VkFormatFeatureFlags features);
 	VkFormat FindDepthFormat();
 	bool HasStencilComponent(VkFormat format);
+
+	void LoadModel();
 private:
 	void InitWindow();
 	void InitVulkan();
@@ -84,6 +86,7 @@ private:
 	void Reelase();
 
 	void FrameUpdate();
+	void Input(GLFWwindow* window);
 	void Rendering();
 	void UpdateUniformBuffer(uint32_t currentImage);
 
@@ -143,5 +146,8 @@ private:
 	VkImage				_depthImage;
 	VkDeviceMemory		_depthImageMemory;
 	VkImageView			_depthImageView;
+
+	std::vector<Vertex>		_vertices;
+	std::vector<uint32_t>	_indices;
 
 };

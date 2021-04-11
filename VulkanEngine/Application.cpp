@@ -918,6 +918,12 @@ void Application::LoadModel()
 				};
 			}
 
+			vertex.normal = {
+	attrib.normals[index.vertex_index],
+	attrib.normals[index.vertex_index+1],
+	attrib.normals[index.vertex_index+2]
+			};
+
 			vertex.color = { 0.1f, 0.15f, 0.1f };
 
 			_vertices.push_back(vertex);

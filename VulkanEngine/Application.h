@@ -79,6 +79,8 @@ private:
 	bool HasStencilComponent(VkFormat format);
 
 	void LoadModel();
+
+	void SetupVulkanWindow(ImGui_ImplVulkanH_Window* wd, VkSurfaceKHR surface, int width, int height);
 private:
 	void InitWindow();
 	void InitVulkan();
@@ -89,6 +91,8 @@ private:
 	void Input(GLFWwindow* window);
 	void Rendering();
 	void UpdateUniformBuffer(uint32_t currentImage);
+
+
 
 private:
 	GLFWwindow*					_window;

@@ -6,6 +6,23 @@
 #define TINYOBJLOADER_IMPLEMENTATION
 #include <tiny_obj_loader.h>
 
+static VkAllocationCallbacks* g_Allocator = NULL;
+static ImGui_ImplVulkanH_Window g_MainWindowData;
+static int                      g_MinImageCount = 2;
+static bool                     g_SwapChainRebuild = false;
+static int                      g_SwapChainResizeWidth = 0;
+static int                      g_SwapChainResizeHeight = 0;
+static uint32_t                 g_QueueFamily = (uint32_t)-1;
+static VkQueue                  g_Queue = VK_NULL_HANDLE;
+static VkPipelineCache          g_PipelineCache = VK_NULL_HANDLE;
+
+static void check_vk_result(VkResult err)
+{
+	if (err == 0) return;
+	printf("VkResult %d\n", err);
+	if (err < 0)
+		abort();
+}
 VkResult CreateDebugUtilsMessengerEXT(
 	VkInstance instance,
 	const VkDebugUtilsMessengerCreateInfoEXT* pCreateInfo,
@@ -30,13 +47,172 @@ void DestroyDebugUtilsMessengerEXT(
 		func(instance, debugMessenger, pAllocator);
 	}
 }
+static void glfw_resize_callback(GLFWwindow*, int w, int h)
+{
+	g_SwapChainRebuild = true;
+	g_SwapChainResizeWidth = w;
+	g_SwapChainResizeHeight = h;
+}
+void Application::SetupVulkanWindow(ImGui_ImplVulkanH_Window* wd, VkSurfaceKHR surface, int width, int height)
+{
+	wd->Surface = surface;
 
+	// Check for WSI support
+	VkBool32 res;
+	vkGetPhysicalDeviceSurfaceSupportKHR(_physicalDevice, g_QueueFamily, wd->Surface, &res);
+	if (res != VK_TRUE)
+	{
+		fprintf(stderr, "Error no WSI support on physical device 0\n");
+		exit(-1);
+	}
+
+	// Select Surface Format
+	const VkFormat requestSurfaceImageFormat[] = { VK_FORMAT_B8G8R8A8_UNORM, VK_FORMAT_R8G8B8A8_UNORM, VK_FORMAT_B8G8R8_UNORM, VK_FORMAT_R8G8B8_UNORM };
+	const VkColorSpaceKHR requestSurfaceColorSpace = VK_COLORSPACE_SRGB_NONLINEAR_KHR;
+	wd->SurfaceFormat = ImGui_ImplVulkanH_SelectSurfaceFormat(_physicalDevice, wd->Surface, requestSurfaceImageFormat, (size_t)IM_ARRAYSIZE(requestSurfaceImageFormat), requestSurfaceColorSpace);
+
+	// Select Present Mode
+#ifdef IMGUI_UNLIMITED_FRAME_RATE
+	VkPresentModeKHR present_modes[] = { VK_PRESENT_MODE_MAILBOX_KHR, VK_PRESENT_MODE_IMMEDIATE_KHR, VK_PRESENT_MODE_FIFO_KHR };
+#else
+	VkPresentModeKHR present_modes[] = { VK_PRESENT_MODE_FIFO_KHR };
+#endif
+	wd->PresentMode = ImGui_ImplVulkanH_SelectPresentMode(_physicalDevice, wd->Surface, &present_modes[0], IM_ARRAYSIZE(present_modes));
+	//printf("[vulkan] Selected PresentMode = %d\n", wd->PresentMode);
+
+	// Create SwapChain, RenderPass, Framebuffer, etc.
+	IM_ASSERT(g_MinImageCount >= 2);
+	ImGui_ImplVulkanH_CreateOrResizeWindow(_instance, _physicalDevice, _device, wd, g_QueueFamily, g_Allocator, width, height, g_MinImageCount);
+}
 void Application::Start()
 {
 	InitWindow();
 	InitVulkan();
+
+
+	int w, h;
+	glfwGetFramebufferSize(_window, &w, &h);
+	glfwSetFramebufferSizeCallback(_window, glfw_resize_callback);
+	ImGui_ImplVulkanH_Window* wd = &g_MainWindowData;
+	wd->Swapchain = _swapChain;
+	wd->ImageCount = (uint32_t)_swapChainImages.size() - 1;
+	{
+		g_MainWindowData.Frames = new ImGui_ImplVulkanH_Frame[_swapChainImages.size()];
+		for (int i = 0; i < this->_swapChainImages.size(); i++)
+		{
+			g_MainWindowData.Frames[i].Backbuffer = this->_swapChainImages[i];
+			g_MainWindowData.Frames[i].BackbufferView = this->_swapChainImageViews[i];
+			g_MainWindowData.Frames[i].CommandBuffer = this->_commandBuffers[i];
+			g_MainWindowData.Frames[i].CommandPool = this->_commandPool;
+			g_MainWindowData.Frames[i].Framebuffer = this->_swapChainFramebuffers[i];
+			g_MainWindowData.Frames[i].Fence = this->_inFlightFences[0];
+		}
+		wd->RenderPass = _renderPass;
+		wd->FrameSemaphores = new ImGui_ImplVulkanH_FrameSemaphores[this->_imageAvailableSemaphores.size()];
+		for (int i = 0; i < _imageAvailableSemaphores.size(); ++i)
+		{
+			wd->FrameSemaphores[i].ImageAcquiredSemaphore = this->_imageAvailableSemaphores[i];
+			wd->FrameSemaphores[i].RenderCompleteSemaphore = this->_renderFinishedSemaphores[i];
+		}
+	}
+	g_Queue = _graphicsQueue;
+
+	wd->Surface = _surface;
+
+	// Setup Dear ImGui context
+	IMGUI_CHECKVERSION();
+	ImGui::CreateContext();
+	ImGuiIO& io = ImGui::GetIO(); (void)io;
+	io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;       // Enable Keyboard Controls
+	//io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
+	//io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;           // Enable Docking
+	//io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;         // Enable Multi-Viewport / Platform Windows
+	//io.ConfigViewportsNoAutoMerge = true;
+	//io.ConfigViewportsNoTaskBarIcon = true;
+
+	// Setup Dear ImGui style
+	ImGui::StyleColorsDark();
+	//ImGui::StyleColorsClassic();
+
+	// When viewports are enabled we tweak WindowRounding/WindowBg so platform windows can look identical to regular ones.
+	ImGuiStyle& style = ImGui::GetStyle();
+	
+	/*if (io.ConfigFlags & ImGuiIO::::ImGuiConfigFlags_ViewportsEnable)
+	{
+		style.WindowRounding = 0.0f;
+		style.Colors[ImGuiCol_WindowBg].w = 1.0f;
+	}*/
+
+	VkDescriptorPoolSize pool_sizes[] =
+	{
+		{ VK_DESCRIPTOR_TYPE_SAMPLER, 1000 },
+		{ VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, 1000 },
+		{ VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE, 1000 },
+		{ VK_DESCRIPTOR_TYPE_STORAGE_IMAGE, 1000 },
+		{ VK_DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER, 1000 },
+		{ VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER, 1000 },
+		{ VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, 1000 },
+		{ VK_DESCRIPTOR_TYPE_STORAGE_BUFFER, 1000 },
+		{ VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC, 1000 },
+		{ VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC, 1000 },
+		{ VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT, 1000 }
+	};
+	VkDescriptorPoolCreateInfo pool_info = {};
+	pool_info.sType = VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_CREATE_INFO;
+	pool_info.flags = VK_DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT;
+	pool_info.maxSets = 1000 * IM_ARRAYSIZE(pool_sizes);
+	pool_info.poolSizeCount = (uint32_t)IM_ARRAYSIZE(pool_sizes);
+	pool_info.pPoolSizes = pool_sizes;
+	vkCreateDescriptorPool(_device, &pool_info, nullptr, &_descriptorPool);
+
+	ImGui_ImplGlfw_InitForVulkan(_window, true);
+	ImGui_ImplVulkan_InitInfo init_info = {};
+	init_info.Instance = _instance;
+	init_info.PhysicalDevice = _physicalDevice;
+	init_info.Device = _device;
+	init_info.QueueFamily = g_QueueFamily;
+	init_info.Queue = g_Queue;
+	init_info.PipelineCache = g_PipelineCache;
+	init_info.DescriptorPool = _descriptorPool;
+	init_info.Allocator = g_Allocator;
+	init_info.MinImageCount = g_MinImageCount;
+	init_info.ImageCount = wd->ImageCount + 2;
+	init_info.CheckVkResultFn = check_vk_result;
+	ImGui_ImplVulkan_Init(&init_info, _renderPass);
+
+	{
+		// Upload Fonts
+	   // Use any command queue
+		VkCommandPool command_pool = wd->Frames[wd->FrameIndex].CommandPool;
+		VkCommandBuffer command_buffer = wd->Frames[wd->FrameIndex].CommandBuffer;
+
+		auto err = vkResetCommandPool(_device, command_pool, 0);
+		check_vk_result(err);
+		VkCommandBufferBeginInfo begin_info = {};
+		begin_info.sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO;
+		begin_info.flags |= VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT;
+		err = vkBeginCommandBuffer(command_buffer, &begin_info);
+		check_vk_result(err);
+
+		ImGui_ImplVulkan_CreateFontsTexture(command_buffer);
+
+		VkSubmitInfo end_info = {};
+		end_info.sType = VK_STRUCTURE_TYPE_SUBMIT_INFO;
+		end_info.commandBufferCount = 1;
+		end_info.pCommandBuffers = &command_buffer;
+		err = vkEndCommandBuffer(command_buffer);
+		check_vk_result(err);
+		err = vkQueueSubmit(g_Queue, 1, &end_info, VK_NULL_HANDLE);
+		check_vk_result(err);
+
+		err = vkDeviceWaitIdle(_device);
+		check_vk_result(err);
+		ImGui_ImplVulkan_DestroyFontUploadObjects();
+	}
+
 	FrameUpdate();
 	Reelase();
+
 }
 
 void Application::InitVulkan()
@@ -69,6 +245,7 @@ void Application::InitVulkan()
 
 void Application::Reelase()
 {
+
 	ReleaseSwapChain();
 
 	vkDestroySampler(_device, _textureSampler, nullptr);
@@ -1204,6 +1381,7 @@ QueueFamilyIndices Application::FindQueueFamilies(VkPhysicalDevice device)
 	int i = 0;
 	for (const auto& queueFamily : queueFamilies) {
 		if (queueFamily.queueFlags & VK_QUEUE_GRAPHICS_BIT) {
+			g_QueueFamily = i;
 			indices._graphicsFamily = i;
 		}
 
@@ -1395,15 +1573,35 @@ std::vector<const char*> Application::GetRequiredExtensions()
 
 	return extensions;
 }
-
+static bool show_another_window = true;
 void Application::FrameUpdate()
 {
 	while (!glfwWindowShouldClose(_window)) {
 		Input(_window);
 		glfwPollEvents();
+		if (g_SwapChainRebuild)
+		{
+			g_SwapChainRebuild = false;
+			ImGui_ImplVulkan_SetMinImageCount(g_MinImageCount);
+			ImGui_ImplVulkanH_CreateOrResizeWindow(_instance, _physicalDevice, _device, &g_MainWindowData, g_QueueFamily, g_Allocator, g_SwapChainResizeWidth, g_SwapChainResizeHeight, g_MinImageCount);
+			g_MainWindowData.FrameIndex = 0;
+		}
+		ImGui_ImplVulkan_NewFrame();
+		ImGui_ImplGlfw_NewFrame();
+		ImGui::NewFrame();
+
+		//ImGui::Begin("Another Window", &show_another_window);   // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
+		//ImGui::Text("Hello from another window!");
+		//if (ImGui::Button("Close Me"))
+		//	show_another_window = false;
+		//ImGui::End();
+
+		ImGui::Render();
+
 		Rendering();
 	}
 	vkDeviceWaitIdle(_device);
+	ImGui_ImplVulkanH_DestroyWindow(_instance, _device, &g_MainWindowData, g_Allocator);
 }
 
 static glm::vec3 movePos;

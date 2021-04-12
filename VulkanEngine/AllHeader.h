@@ -24,6 +24,10 @@
 #include <set>
 #include <unordered_map>
 
+#include "imgui.h"
+#include "imgui_impl_glfw.h"
+#include "imgui_impl_vulkan.h"
+
 const uint32_t WINDOWSIZE_WIDTH = 1200;
 const uint32_t WINDOWSIZE_HEIGHT = 900;
 

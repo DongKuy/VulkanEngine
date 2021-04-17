@@ -158,11 +158,57 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="BufferManip.cpp" />
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="CommandBuffers.cpp" />
+    <ClCompile Include="CommandPool.cpp" />
+    <ClCompile Include="Debug.cpp" />
+    <ClCompile Include="DepthImage.cpp" />
+    <ClCompile Include="DescriptorSets.cpp" />
+    <ClCompile Include="Devices.cpp" />
+    <ClCompile Include="Framebuffers.cpp" />
+    <ClCompile Include="GraphicsPipeline.cpp" />
+    <ClCompile Include="Instance.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="Model.cpp" />
+    <ClCompile Include="GameMain.cpp" />
+    <ClCompile Include="PaperPlane.cpp" />
+    <ClCompile Include="Surface.cpp" />
+    <ClCompile Include="SwapChain.cpp" />
+    <ClCompile Include="SyncObjects.cpp" />
+    <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="UniformBuffers.cpp" />
+    <ClCompile Include="Utils.cpp" />
+    <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AllHeader.h" />
     <ClInclude Include="Application.h" />
+    <ClInclude Include="BufferManip.h" />
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="CommandBuffers.h" />
+    <ClInclude Include="CommandPool.h" />
+    <ClInclude Include="Debug.h" />
+    <ClInclude Include="DepthImage.h" />
+    <ClInclude Include="DescriptorSets.h" />
+    <ClInclude Include="Devices.h" />
+    <ClInclude Include="Framebuffers.h" />
+    <ClInclude Include="GraphicsPipeline.h" />
+    <ClInclude Include="IApplication.h" />
+    <ClInclude Include="Instance.h" />
+    <ClInclude Include="Libraries.h" />
+    <ClInclude Include="Mesh.h" />
+    <ClInclude Include="Model.h" />
+    <ClInclude Include="GameMain.h" />
+    <ClInclude Include="PaperPlane.h" />
+    <ClInclude Include="Surface.h" />
+    <ClInclude Include="SwapChain.h" />
+    <ClInclude Include="SyncObjects.h" />
+    <ClInclude Include="Texture.h" />
+    <ClInclude Include="UniformBuffers.h" />
+    <ClInclude Include="Utils.h" />
+    <ClInclude Include="Vertex.h" />
+    <ClInclude Include="Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

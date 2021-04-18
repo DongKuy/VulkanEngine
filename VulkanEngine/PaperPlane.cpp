@@ -1,11 +1,11 @@
 #include "PaperPlane.h"
 #include "GameMain.h"
 
-scene::PaperPlane::PaperPlane(renderer::ModelKey key) : renderer::Model(renderer::GOUNMODEL, key) {
+scene::ShipObject::ShipObject(renderer::ModelKey key) : renderer::Model(renderer::SHIPMODEL, key) {
     _velocity = glm::vec3(0.0f, 0.0f, 0.1f);
 }
 
-void scene::PaperPlane::update(renderer::Models_t &models) {
+void scene::ShipObject::update(renderer::Models_t &models) {
     /*auto findCenter = [this](glm::vec3 center, std::unique_ptr<renderer::Model> &model) {
         if (this->getId() == model->getId())
             return center;
@@ -76,7 +76,7 @@ void scene::PaperPlane::update(renderer::Models_t &models) {
     app.SetCameraTarget(_position);
 }
 
-glm::vec3 scene::PaperPlane::boundaries() {
+glm::vec3 scene::ShipObject::boundaries() {
     glm::vec3 bound = glm::vec3(0.0f, 0.0f, 0.0f);
     if (_position.x < -10)
         bound.x = 1;
@@ -93,7 +93,7 @@ glm::vec3 scene::PaperPlane::boundaries() {
     return bound;
 }
 
-void scene::PaperPlane::updateUniformBuffer (VkDevice &device, uint32_t currentImage) {
+void scene::ShipObject::updateUniformBuffer (VkDevice &device, uint32_t currentImage) {
     glm::vec3 left_vector = glm::normalize(_velocity);
 
     double pitch = 0;

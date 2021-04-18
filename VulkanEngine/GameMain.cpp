@@ -19,16 +19,16 @@ void scene::GameMain::initModels() {
         _models.push_back(std::make_unique<PaperPlane>(PaperPlane(renderer::MODELKEY[0])));
         _models.back()->setPosition(position);
     }*/
-    auto findBlock = [&position](std::unique_ptr<renderer::Model> &obj) { return obj->getPosition() == position; };
+   /* auto findBlock = [&position](std::unique_ptr<renderer::Model> &obj) { return obj->getPosition() == position; };
     for (size_t i = 0; i < planeNb; i++) {
         do {
             position = glm::vec3(rand() % 7 - 3, (rand() % 13 - 6) * 0.5, (rand() % 5) * 1.5);
         } while (std::find_if(std::begin(_models), std::end(_models), findBlock) != std::end(_models));
-        _models.push_back(std::make_unique<PaperPlane>(PaperPlane(renderer::MODELKEY[0])));
+        _models.push_back(std::make_unique<ShipObject>(ShipObject(renderer::MODELKEY[0])));
         _models.back()->setPosition(position);
-    }
-    /*_models.push_back(std::make_unique<PaperPlane>(PaperPlane(renderer::MODELKEY[0])));
-    _models.back()->setPosition(position);*/
+    }*/
+    _models.push_back(std::make_unique<ShipObject>(ShipObject(renderer::MODELKEY[0])));
+    _models.back()->setPosition(position);
 
     Application::initModels();
 }

@@ -10,10 +10,10 @@
 
 namespace scene {
 
-    class PaperPlane : public renderer::Model {
+    class ShipObject : public renderer::Model {
     public:
-        explicit PaperPlane(renderer::ModelKey key);
-        ~PaperPlane() override = default;
+        explicit ShipObject(renderer::ModelKey key);
+        ~ShipObject() override = default;
 
         void update(renderer::Models_t &models) override;
         void updateUniformBuffer(VkDevice &device, uint32_t currentImage) override;

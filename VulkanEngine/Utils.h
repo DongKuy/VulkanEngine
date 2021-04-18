@@ -48,14 +48,14 @@ namespace renderer {
     };
 
     enum ModelType {
-        GOUNMODEL
+        SHIPMODEL
     };
 
     enum ModelKey {
-        GOUN,
+        SHIP,
     };
 
-    const ModelKey MODELKEY[] = { GOUN, };
+    const ModelKey MODELKEY[] = { SHIP, };
 
     std::vector<char> readFile(const std::string& filename);
     VkFormat findDepthFormat(VkPhysicalDevice &device);

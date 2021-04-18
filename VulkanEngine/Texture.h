@@ -34,7 +34,7 @@ namespace renderer {
 
         const ModelKey _key;
         const std::unordered_map<ModelKey, std::string> _textureFile = {
-                {ModelKey::GOUN, "Models/99-intergalactic_spaceship-obj/textures/Intergalactic Spaceship_rough.jpg"},
+                {ModelKey::SHIP, "Models/99-intergalactic_spaceship-obj/textures/Intergalactic Spaceship_color_4.jpg"},
         };
     };
 

@@ -38,7 +38,7 @@ namespace renderer {
 
         const ModelType _type;
         const std::unordered_map<ModelType, std::string> _modelFile = {
-                {ModelType::GOUNMODEL, "Models/99-intergalactic_spaceship-obj/Intergalactic_Spaceship-(Wavefront).obj"}
+                {ModelType::SHIPMODEL, "Models/99-intergalactic_spaceship-obj/Intergalactic_Spaceship-(Wavefront).obj"}
         };
 
     };

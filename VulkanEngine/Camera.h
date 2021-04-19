@@ -28,6 +28,7 @@ namespace scene {
 
         bool IsLookAtTarget = false;
 		glm::vec3 Target = glm::vec3(0.f, 0.f, 0.f);
+        void SetPosition(glm::vec3 pos) { _cameraPos = pos; }
 
     private:
         void updateCamerasVectors();

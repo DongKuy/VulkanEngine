@@ -84,13 +84,13 @@
     <ClCompile Include="DepthImage.cpp">
       <Filter>소스 파일\Main</Filter>
     </ClCompile>
-    <ClCompile Include="PaperPlane.cpp">
-      <Filter>소스 파일\Game</Filter>
-    </ClCompile>
     <ClCompile Include="Camera.cpp">
       <Filter>소스 파일\Game</Filter>
     </ClCompile>
     <ClCompile Include="GameMain.cpp">
+      <Filter>소스 파일\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="ShipObject.cpp">
       <Filter>소스 파일\Game</Filter>
     </ClCompile>
   </ItemGroup>
@@ -167,10 +167,10 @@
     <ClInclude Include="Camera.h">
       <Filter>소스 파일\Game</Filter>
     </ClInclude>
-    <ClInclude Include="PaperPlane.h">
+    <ClInclude Include="GameMain.h">
       <Filter>소스 파일\Game</Filter>
     </ClInclude>
-    <ClInclude Include="GameMain.h">
+    <ClInclude Include="ShipObject.h">
       <Filter>소스 파일\Game</Filter>
     </ClInclude>
   </ItemGroup>

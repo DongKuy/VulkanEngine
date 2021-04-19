@@ -12,7 +12,7 @@ namespace scene {
 
     class ShipObject : public renderer::Model {
     public:
-        explicit ShipObject(renderer::ModelKey key);
+        explicit ShipObject(renderer::ModelType modelType,renderer::ModelKey key);
         ~ShipObject() override = default;
 
         void update(renderer::Models_t &models) override;

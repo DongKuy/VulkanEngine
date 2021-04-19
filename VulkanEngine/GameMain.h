@@ -10,7 +10,7 @@
 
 #include "Application.h"
 #include "Camera.h"
-#include "PaperPlane.h"
+#include "ShipObject.h"
 
 namespace scene {
     class GameMain : public renderer::Application {
@@ -36,7 +36,15 @@ namespace scene {
         {
             _camera->IsLookAtTarget = isOn;
         }
+        void SetCameraPosition(glm::vec3 pos)
+        {
+            _camera->SetPosition(pos);
+        }
+        glm::vec3 GetCameraPosition() { return _camera->getCameraPosition(); }
 
+        glm::vec3 LightPos;
+        glm::vec3 LightColor = glm::vec3(1,1,1);
+        float LightPow = 0.8;
 
     private:
         void initModels() override;

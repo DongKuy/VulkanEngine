@@ -1,4 +1,5 @@
 #include "Model.h"
+#include "GameMain.h"
 
 size_t renderer::Model::_idGen = 0;
 
@@ -41,6 +42,12 @@ void renderer::Model::updateUniformBuffer(VkDevice &device, uint32_t currentImag
     rotate = glm::translate(rotate, -_offset);
     glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
     _ubo.model = translate * rotate * scale;
+	_ubo.lightPos = scene::GameMain::Get().LightPos;
+    _ubo.viewPos = scene::GameMain::Get().GetCameraPosition();
+    //_ubo.lightPos = glm::vec3(0,0,0);
+    //_ubo.lightColor = glm::vec3(0.2f, 0.2f, 0.8f);
+    _ubo.lightColor = scene::GameMain::Get().LightColor;
+    _ubo.brightness = scene::GameMain::Get().LightPow;
 
     void* data;
     vkMapMemory(device, _uniforms.getMemory(currentImage), 0, sizeof(_ubo), 0, &data);

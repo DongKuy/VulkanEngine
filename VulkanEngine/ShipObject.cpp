@@ -1,7 +1,7 @@
-#include "PaperPlane.h"
+#include "ShipObject.h"
 #include "GameMain.h"
 
-scene::ShipObject::ShipObject(renderer::ModelKey key) : renderer::Model(renderer::SHIPMODEL, key) {
+scene::ShipObject::ShipObject(renderer::ModelType modelType, renderer::ModelKey key) : renderer::Model(modelType, key) {
     _velocity = glm::vec3(0.0f, 0.0f, 0.1f);
 }
 
@@ -45,35 +45,76 @@ void scene::ShipObject::update(renderer::Models_t &models) {
 
     //_position += _velocity;
 
-    if (this->getId() != 0)return;
+    if (this->getId() != 0)
+    {
+        return;
+    }
     scene::GameMain& app = scene::GameMain::Get();
     if (app.GetKeyDown(GLFW_KEY_UP))
 	{
-		_position += glm::vec3(0, 0, 0.1f * _maxSpeed);
+		_position += glm::vec3(0, 0, -0.1f * _maxSpeed);
 	}
 	if (app.GetKeyDown(GLFW_KEY_DOWN))
 	{
-		_position += glm::vec3(0, 0, -0.1f * _maxSpeed);
+		_position += glm::vec3(0, 0, 0.1f * _maxSpeed);
 	}
 	if (app.GetKeyDown(GLFW_KEY_LEFT))
 	{
-		_position += glm::vec3(0.1f * _maxSpeed, 0, 0);
+		_position += glm::vec3(-0.1f * _maxSpeed, 0, 0);
 	}
 	if (app.GetKeyDown(GLFW_KEY_RIGHT))
 	{
-		_position += glm::vec3(-0.1f * _maxSpeed, 0, 0);
-    }
+		_position += glm::vec3(0.1f * _maxSpeed, 0, 0);
+	}
 
-    if (app.GetKeyDown(GLFW_KEY_SPACE))
-    {
+	if (app.GetKeyDown(GLFW_KEY_SPACE))
+	{
 		_position += glm::vec3(0, 0.1f * _maxSpeed, 0);
-    }
-    if (app.GetKeyDown(GLFW_KEY_LEFT_SHIFT))
-    {
-        _position += glm::vec3(0,-0.1f * _maxSpeed, 0);
+	}
+	if (app.GetKeyDown(GLFW_KEY_LEFT_SHIFT))
+	{
+		_position += glm::vec3(0, -0.1f * _maxSpeed, 0);
     }
     app.SetCameraLookAtTarget(true);
     app.SetCameraTarget(_position);
+    app.SetCameraPosition(_position + glm::vec3(0.f, 1.3f, 3.5f));
+    app.LightPos = _position;
+
+    if (app.GetKeyDown(GLFW_KEY_INSERT))
+    {
+        app.LightColor.x += 0.01f;
+    }
+    if (app.GetKeyDown(GLFW_KEY_DELETE))
+    {
+        app.LightColor.x -= 0.01f;
+    }
+
+    if (app.GetKeyDown(GLFW_KEY_HOME))
+    {
+        app.LightColor.y += 0.01f;
+    }
+    if (app.GetKeyDown(GLFW_KEY_END))
+    {
+        app.LightColor.y -= 0.01f;
+    }
+
+    if (app.GetKeyDown(GLFW_KEY_PAGE_UP))
+    {
+        app.LightColor.z += 0.01f;
+    }
+    if (app.GetKeyDown(GLFW_KEY_PAGE_DOWN))
+    {
+        app.LightColor.z -= 0.01f;
+    }
+
+    if (app.GetKeyDown(GLFW_KEY_1))
+    {
+        app.LightPow += 0.01f;
+    }
+    if (app.GetKeyDown(GLFW_KEY_2))
+    {
+        app.LightPow -= 0.01f;
+    }
 }
 
 glm::vec3 scene::ShipObject::boundaries() {
@@ -94,7 +135,7 @@ glm::vec3 scene::ShipObject::boundaries() {
 }
 
 void scene::ShipObject::updateUniformBuffer (VkDevice &device, uint32_t currentImage) {
-    glm::vec3 left_vector = glm::normalize(_velocity);
+    /*glm::vec3 left_vector = glm::normalize(_velocity);
 
     double pitch = 0;
     if (left_vector.y < 0)
@@ -103,7 +144,7 @@ void scene::ShipObject::updateUniformBuffer (VkDevice &device, uint32_t currentI
         pitch = -glm::asin(left_vector.y) * (180 / renderer::PI);
     double yaw = glm::atan(left_vector.x, left_vector.z) * (180 / renderer::PI);
 
-    _orientation = glm::vec3(pitch, yaw - 180.0f, 0.0f);
+    _orientation = glm::vec3(pitch, yaw, 0.0f);*/
 
     Model::updateUniformBuffer(device, currentImage);
 }

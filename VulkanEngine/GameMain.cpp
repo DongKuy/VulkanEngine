@@ -27,8 +27,16 @@ void scene::GameMain::initModels() {
         _models.push_back(std::make_unique<ShipObject>(ShipObject(renderer::MODELKEY[0])));
         _models.back()->setPosition(position);
     }*/
-    _models.push_back(std::make_unique<ShipObject>(ShipObject(renderer::MODELKEY[0])));
+	_models.push_back(std::make_unique<ShipObject>(ShipObject(renderer::MODELTYPE[0], renderer::MODELKEY[0])));
     _models.back()->setPosition(position);
+    _models.back()->setOrientation(glm::vec3(0, 180, 0));
+
+    for (int i = 0; i < 70; i++)
+    {
+        _models.push_back(std::make_unique<ShipObject>(ShipObject(renderer::MODELTYPE[1], renderer::MODELKEY[1])));
+        _models.back()->setPosition(glm::vec3(rand() % 30 - 15, 0.f, rand() % 30 - 15));
+        _models.back()->setOrientation(glm::vec3(0, rand() % 360, 0));
+    }
 
     Application::initModels();
 }

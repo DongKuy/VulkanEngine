@@ -23,7 +23,7 @@ void renderer::Application::initVulkan() {
 }
 
 void renderer::Application::initModels() {
-    const ModelType allType[] = { SHIPMODEL };
+    const ModelType allType[] = { SHIPMODEL,CASAMODEL };
 
     for (const auto &type : allType) {
         _meshes.emplace(type, Mesh(type));

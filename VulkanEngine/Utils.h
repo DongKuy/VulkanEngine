@@ -17,7 +17,8 @@ namespace renderer {
     const float PI = 3.14159265358979323846264338327950288f;
 
     const std::string PATH = "../Resources/";
-    const VkClearColorValue BACKGROUND_COLOR = {0.61f, 0.76f, 0.82f, 1.0f};
+    //const VkClearColorValue BACKGROUND_COLOR = {0.61f, 0.76f, 0.82f, 1.0f};
+    const VkClearColorValue BACKGROUND_COLOR = {0.f, 0.f, 0.f, 1.0f};
 
     const std::vector<const char*> validationLayers = {
             "VK_LAYER_KHRONOS_validation"
@@ -30,7 +31,11 @@ namespace renderer {
         glm::mat4 model;
         glm::mat4 view;
         glm::mat4 proj;
-    };
+        glm::vec3 lightColor;
+        glm::vec3 lightPos;
+        glm::vec3 viewPos;
+        float brightness;
+	};
 
     struct QueueFamilyIndices {
         std::optional<uint32_t> graphicsFamily;
@@ -48,14 +53,17 @@ namespace renderer {
     };
 
     enum ModelType {
-        SHIPMODEL
+        SHIPMODEL,
+        CASAMODEL
     };
 
     enum ModelKey {
         SHIP,
+        CASA
     };
 
-    const ModelKey MODELKEY[] = { SHIP, };
+    const ModelType MODELTYPE[] = { SHIPMODEL, CASAMODEL };
+    const ModelKey MODELKEY[] = { SHIP, CASA };
 
     std::vector<char> readFile(const std::string& filename);
     VkFormat findDepthFormat(VkPhysicalDevice &device);

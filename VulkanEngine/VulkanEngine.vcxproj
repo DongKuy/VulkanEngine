@@ -173,7 +173,7 @@
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="GameMain.cpp" />
-    <ClCompile Include="PaperPlane.cpp" />
+    <ClCompile Include="ShipObject.cpp" />
     <ClCompile Include="Surface.cpp" />
     <ClCompile Include="SwapChain.cpp" />
     <ClCompile Include="SyncObjects.cpp" />
@@ -200,7 +200,7 @@
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="GameMain.h" />
-    <ClInclude Include="PaperPlane.h" />
+    <ClInclude Include="ShipObject.h" />
     <ClInclude Include="Surface.h" />
     <ClInclude Include="SwapChain.h" />
     <ClInclude Include="SyncObjects.h" />

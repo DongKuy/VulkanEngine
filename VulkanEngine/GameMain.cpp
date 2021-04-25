@@ -11,22 +11,6 @@ void scene::GameMain::initModels() {
     const size_t planeNb = 30;
     glm::vec3 position = glm::vec3(1.0f, 3.f, 2.f);
 
-    /*auto findBlock = [&position](std::unique_ptr<renderer::Model> &obj) { return obj->getPosition() == position; };
-    for (size_t i = 0; i < planeNb; i++) {
-        do {
-            position = glm::vec3(rand() % 7 - 3, (rand() % 13 - 6) * 0.5, (rand() % 5) * 1.5);
-        } while (std::find_if(std::begin(_models), std::end(_models), findBlock) != std::end(_models));
-        _models.push_back(std::make_unique<PaperPlane>(PaperPlane(renderer::MODELKEY[0])));
-        _models.back()->setPosition(position);
-    }*/
-   /* auto findBlock = [&position](std::unique_ptr<renderer::Model> &obj) { return obj->getPosition() == position; };
-    for (size_t i = 0; i < planeNb; i++) {
-        do {
-            position = glm::vec3(rand() % 7 - 3, (rand() % 13 - 6) * 0.5, (rand() % 5) * 1.5);
-        } while (std::find_if(std::begin(_models), std::end(_models), findBlock) != std::end(_models));
-        _models.push_back(std::make_unique<ShipObject>(ShipObject(renderer::MODELKEY[0])));
-        _models.back()->setPosition(position);
-    }*/
 	_models.push_back(std::make_unique<ShipObject>(ShipObject(renderer::MODELTYPE[0], renderer::MODELKEY[0])));
     _models.back()->setPosition(position);
     _models.back()->setOrientation(glm::vec3(0, 180, 0));

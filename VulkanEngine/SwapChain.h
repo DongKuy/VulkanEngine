@@ -1,5 +1,5 @@
-#ifndef SWAP_CHAIN_HPP
-# define SWAP_CHAIN_HPP
+#ifndef SWAP_CHAIN_H
+# define SWAP_CHAIN_H
 
 #include <vector>
 

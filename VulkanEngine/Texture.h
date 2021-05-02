@@ -1,5 +1,5 @@
-#ifndef TEXTURE_HPP
-# define TEXTURE_HPP
+#ifndef TEXTURE_H
+# define TEXTURE_H
 
 #include <unordered_map>
 #include <string>

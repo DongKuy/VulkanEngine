@@ -1,5 +1,5 @@
-#ifndef LIBRARY_HPP
-# define LIBRARY_HPP
+#ifndef LIBRARY_H
+# define LIBRARY_H
 
 # define GLFW_INCLUDE_VULKAN
 #include <GLFW/glfw3.h>

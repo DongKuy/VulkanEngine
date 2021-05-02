@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="renderer::Application" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAFAgEAAxAAAUUAAACEEgCRYAIiCAAAQAAAAAQAUEA=</HashCode>
+      <FileName>Application.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="renderer::BufferManip" Collapsed="true">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAICAAAQAAABAAAAAAACAAAABAAAAAAAAAAAAAIQ=</HashCode>
+      <FileName>BufferManip.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="renderer::CommandBuffers" Collapsed="true">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAABAAAACAAAAAAAAIAAAAAAAAEAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>CommandBuffers.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="renderer::CommandPool" Collapsed="true">
+    <Position X="11.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAACAAAAAAAAAAAQAAAAAAAAAAAAAAIAAAAQAA=</HashCode>
+      <FileName>CommandPool.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="renderer::Debug" Collapsed="true">
+    <Position X="13" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YAAAAAAADAAAAKQAAAAAAAAAQAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Debug.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="renderer::DepthImage" Collapsed="true">
+    <Position X="6" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QQAAAAAACAAgAAAAAAQAQAAAAAAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DepthImage.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="renderer::DescriptorSets" Collapsed="true">
+    <Position X="7.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAIAADAAAAAAAAEgAAAAAAAEAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>DescriptorSets.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="renderer::Devices" Collapsed="true">
+    <Position X="9.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QgAAAAAACAAAAAAAAIAQQgSAQAAAgAAAAAAAACBAAAA=</HashCode>
+      <FileName>Devices.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="renderer::Framebuffers" Collapsed="true">
+    <Position X="11.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAIAAAAACAAAAAAAAIAAABAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Framebuffers.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="renderer::GraphicsPipeline" Collapsed="true">
+    <Position X="13" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAACAAAAIAAAAAAYCAIAAgEAAQYAAAEABAAAAQ=</HashCode>
+      <FileName>GraphicsPipeline.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="renderer::IApplication" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAEgABIAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IApplication.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="renderer::Instance" Collapsed="true">
+    <Position X="6" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAEAAAACAAAAAAAAAAAQAAAAAAIAABAQAAAAAAAAAA=</HashCode>
+      <FileName>Instance.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="renderer::Mesh" Collapsed="true">
+    <Position X="7.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QQAQAAAACAEAAAxAAAAAAACgAAAAQoAAAQggAAEAAAA=</HashCode>
+      <FileName>Mesh.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="renderer::Model" Collapsed="true">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QwAAIAAACAIAIEYAIEHAAAACAAgAAAAAAIhBgABEACA=</HashCode>
+      <FileName>Model.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="renderer::Surface" Collapsed="true">
+    <Position X="9.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAQAgAAACAAAAAAAAAAAQAAEAAAAAAAgAABAAAAAEAA=</HashCode>
+      <FileName>Surface.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="renderer::SwapChain" Collapsed="true">
+    <Position X="11.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAABECCAAAAAEIAIAARAAAAQBCAAEQAAEgAAEAAAI=</HashCode>
+      <FileName>SwapChain.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="renderer::SyncObjects" Collapsed="true">
+    <Position X="13" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAACAAAAACAAAAABAAAAAAQAEAAgAAAMAAAAAA=</HashCode>
+      <FileName>SyncObjects.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="renderer::Texture" Collapsed="true">
+    <Position X="6" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAACAAAEAAAABCABAAAAAAIABAgIAIACAAAIAA=</HashCode>
+      <FileName>Texture.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="renderer::UniformBuffers" Collapsed="true">
+    <Position X="7.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QCAAEAAACAAAAAAAAAAgAAAAAAEAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UniformBuffers.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="renderer::Window" Collapsed="true">
+    <Position X="9.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAABAAACgAAAAAQAAAAQAAAAAAAAAAAAYAACCAAAAA=</HashCode>
+      <FileName>Window.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="scene::Camera" Collapsed="true">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACMAAhAAAAACAAEAAFATAAAAgQAgAgIAAACFAAADA=</HashCode>
+      <FileName>Camera.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="scene::GameMain" Collapsed="true">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAEBgAAAAACAEJAAAAAGgABIAAgAAAQJAABACSEAAA=</HashCode>
+      <FileName>GameMain.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="scene::GameObject" Collapsed="true">
+    <Position X="3.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAAAAAAIAAAAAAAACIAAEAIEAAA=</HashCode>
+      <FileName>GameObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="renderer::CallbackInterface" Collapsed="true">
+    <Position X="6" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAABIAAQAAICAAAAAAAAA=</HashCode>
+      <FileName>IApplication.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="renderer::UniformBufferObject" Collapsed="true">
+    <Position X="13" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAgAAAAACQAAAAEIBAA=</HashCode>
+      <FileName>Utils.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="renderer::QueueFamilyIndices" Collapsed="true">
+    <Position X="9.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Utils.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="renderer::SwapChainSupportDetails" Collapsed="true">
+    <Position X="11.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEBAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Utils.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="renderer::Vertex" Collapsed="true">
+    <Position X="6" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAAAAYgAAAAAAACAAAIAAAAAAQA=</HashCode>
+      <FileName>Vertex.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="std::hash&lt;renderer::Vertex&gt;" Collapsed="true">
+    <Position X="7.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Vertex.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Typedef Name="renderer::MeshMap_t" Collapsed="true">
+    <Position X="9.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Mesh.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="renderer::Models_t" Collapsed="true">
+    <Position X="11.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="renderer::TextureMap_t" Collapsed="true">
+    <Position X="13" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Texture.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="scene::Camera_ptr_t" Collapsed="true">
+    <Position X="6" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Camera.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="scene::change_camera_t" Collapsed="true">
+    <Position X="7.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Camera.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Enum Name="renderer::ModelType" Collapsed="true">
+    <Position X="7.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Utils.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="renderer::ModelKey" Collapsed="true">
+    <Position X="6" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Utils.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>

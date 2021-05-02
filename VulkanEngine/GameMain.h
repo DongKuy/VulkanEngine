@@ -1,5 +1,5 @@
-#ifndef PAPERFLY_HPP
-# define PAPERFLY_HPP
+#ifndef GAMEMAIN_H
+# define GAMEMAIN_H
 
 #include <iostream>
 #include <cstdlib>
@@ -10,7 +10,7 @@
 
 #include "Application.h"
 #include "Camera.h"
-#include "ShipObject.h"
+#include "GameObject.h"
 
 namespace scene {
     class GameMain : public renderer::Application {

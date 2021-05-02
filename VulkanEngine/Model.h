@@ -1,5 +1,5 @@
-#ifndef MODEL_HPP
-# define MODEL_HPP
+#ifndef MODEL_H
+# define MODEL_H
 
 #include <vector>
 #include <memory>

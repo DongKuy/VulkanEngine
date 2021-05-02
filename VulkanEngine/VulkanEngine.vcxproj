@@ -162,6 +162,7 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CommandBuffers.cpp" />
     <ClCompile Include="CommandPool.cpp" />
+    <ClCompile Include="ComponentBehavior.cpp" />
     <ClCompile Include="Debug.cpp" />
     <ClCompile Include="DepthImage.cpp" />
     <ClCompile Include="DescriptorSets.cpp" />
@@ -173,7 +174,8 @@
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="GameMain.cpp" />
-    <ClCompile Include="ShipObject.cpp" />
+    <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="PlayerController.cpp" />
     <ClCompile Include="Surface.cpp" />
     <ClCompile Include="SwapChain.cpp" />
     <ClCompile Include="SyncObjects.cpp" />
@@ -188,6 +190,7 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CommandBuffers.h" />
     <ClInclude Include="CommandPool.h" />
+    <ClInclude Include="ComponentBehavior.h" />
     <ClInclude Include="Debug.h" />
     <ClInclude Include="DepthImage.h" />
     <ClInclude Include="DescriptorSets.h" />
@@ -200,7 +203,8 @@
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="GameMain.h" />
-    <ClInclude Include="ShipObject.h" />
+    <ClInclude Include="GameObject.h" />
+    <ClInclude Include="PlayerController.h" />
     <ClInclude Include="Surface.h" />
     <ClInclude Include="SwapChain.h" />
     <ClInclude Include="SyncObjects.h" />
@@ -209,6 +213,9 @@
     <ClInclude Include="Utils.h" />
     <ClInclude Include="Vertex.h" />
     <ClInclude Include="Window.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

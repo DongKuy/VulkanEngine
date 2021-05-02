@@ -1,5 +1,5 @@
-#ifndef DESCRIPTOR_SETS_HPP
-# define DESCRIPTOR_SETS_HPP
+#ifndef DESCRIPTOR_SETS_H
+# define DESCRIPTOR_SETS_H
 
 #include <vector>
 

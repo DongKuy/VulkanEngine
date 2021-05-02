@@ -19,159 +19,198 @@
     <Filter Include="소스 파일\Game">
       <UniqueIdentifier>{1075605b-15ba-416d-bbfb-a55308517ed5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Main\App">
+      <UniqueIdentifier>{9d397497-8f66-4382-8a27-8071c99bfc82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Main\Mesh">
+      <UniqueIdentifier>{f9927c6d-075a-4bf6-b469-756d13e4fb72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Main\Pipeline">
+      <UniqueIdentifier>{9dfb7619-42f8-4086-9d40-0e3df61632d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Game\Object">
+      <UniqueIdentifier>{52ba3a74-dab3-43e6-9031-804b0ab1fbe1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Game\Camera">
+      <UniqueIdentifier>{70c60043-30db-4e73-96cb-02e126546cb0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Game\Component">
+      <UniqueIdentifier>{13a4e275-2d81-48ea-8126-fc245a877b21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Game\Component\Base">
+      <UniqueIdentifier>{ae43948f-819b-4cf5-8ba9-048d62e29cdc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Game\Component\Player">
+      <UniqueIdentifier>{833fcc89-a72f-4ff2-98bb-8b1d47a13985}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>소스 파일\Main</Filter>
-    </ClCompile>
-    <ClCompile Include="DescriptorSets.cpp">
-      <Filter>소스 파일\Main</Filter>
-    </ClCompile>
-    <ClCompile Include="Devices.cpp">
-      <Filter>소스 파일\Main</Filter>
-    </ClCompile>
-    <ClCompile Include="Framebuffers.cpp">
-      <Filter>소스 파일\Main</Filter>
-    </ClCompile>
-    <ClCompile Include="GraphicsPipeline.cpp">
-      <Filter>소스 파일\Main</Filter>
-    </ClCompile>
-    <ClCompile Include="Instance.cpp">
-      <Filter>소스 파일\Main</Filter>
-    </ClCompile>
-    <ClCompile Include="Mesh.cpp">
-      <Filter>소스 파일\Main</Filter>
-    </ClCompile>
-    <ClCompile Include="Model.cpp">
-      <Filter>소스 파일\Main</Filter>
-    </ClCompile>
-    <ClCompile Include="Surface.cpp">
-      <Filter>소스 파일\Main</Filter>
-    </ClCompile>
-    <ClCompile Include="SwapChain.cpp">
-      <Filter>소스 파일\Main</Filter>
-    </ClCompile>
-    <ClCompile Include="SyncObjects.cpp">
-      <Filter>소스 파일\Main</Filter>
-    </ClCompile>
-    <ClCompile Include="Texture.cpp">
-      <Filter>소스 파일\Main</Filter>
-    </ClCompile>
-    <ClCompile Include="UniformBuffers.cpp">
-      <Filter>소스 파일\Main</Filter>
-    </ClCompile>
     <ClCompile Include="Utils.cpp">
       <Filter>소스 파일\Main</Filter>
-    </ClCompile>
-    <ClCompile Include="Window.cpp">
-      <Filter>소스 파일\Main</Filter>
-    </ClCompile>
-    <ClCompile Include="Application.cpp">
-      <Filter>소스 파일\Main</Filter>
-    </ClCompile>
-    <ClCompile Include="BufferManip.cpp">
-      <Filter>소스 파일\Main</Filter>
-    </ClCompile>
-    <ClCompile Include="CommandBuffers.cpp">
-      <Filter>소스 파일\Main</Filter>
-    </ClCompile>
-    <ClCompile Include="CommandPool.cpp">
-      <Filter>소스 파일\Main</Filter>
-    </ClCompile>
-    <ClCompile Include="Debug.cpp">
-      <Filter>소스 파일\Main</Filter>
-    </ClCompile>
-    <ClCompile Include="DepthImage.cpp">
-      <Filter>소스 파일\Main</Filter>
-    </ClCompile>
-    <ClCompile Include="Camera.cpp">
-      <Filter>소스 파일\Game</Filter>
     </ClCompile>
     <ClCompile Include="GameMain.cpp">
       <Filter>소스 파일\Game</Filter>
     </ClCompile>
-    <ClCompile Include="ShipObject.cpp">
-      <Filter>소스 파일\Game</Filter>
+    <ClCompile Include="Application.cpp">
+      <Filter>소스 파일\Main\App</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>소스 파일\Main\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>소스 파일\Main\App</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.cpp">
+      <Filter>소스 파일\Main\App</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>소스 파일\Main\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="Model.cpp">
+      <Filter>소스 파일\Main\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="Instance.cpp">
+      <Filter>소스 파일\Main\App</Filter>
+    </ClCompile>
+    <ClCompile Include="BufferManip.cpp">
+      <Filter>소스 파일\Main\Pipeline</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandBuffers.cpp">
+      <Filter>소스 파일\Main\Pipeline</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandPool.cpp">
+      <Filter>소스 파일\Main\Pipeline</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug.cpp">
+      <Filter>소스 파일\Main\Pipeline</Filter>
+    </ClCompile>
+    <ClCompile Include="DepthImage.cpp">
+      <Filter>소스 파일\Main\Pipeline</Filter>
+    </ClCompile>
+    <ClCompile Include="DescriptorSets.cpp">
+      <Filter>소스 파일\Main\Pipeline</Filter>
+    </ClCompile>
+    <ClCompile Include="Devices.cpp">
+      <Filter>소스 파일\Main\Pipeline</Filter>
+    </ClCompile>
+    <ClCompile Include="Framebuffers.cpp">
+      <Filter>소스 파일\Main\Pipeline</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicsPipeline.cpp">
+      <Filter>소스 파일\Main\Pipeline</Filter>
+    </ClCompile>
+    <ClCompile Include="Surface.cpp">
+      <Filter>소스 파일\Main\Pipeline</Filter>
+    </ClCompile>
+    <ClCompile Include="SwapChain.cpp">
+      <Filter>소스 파일\Main\Pipeline</Filter>
+    </ClCompile>
+    <ClCompile Include="SyncObjects.cpp">
+      <Filter>소스 파일\Main\Pipeline</Filter>
+    </ClCompile>
+    <ClCompile Include="UniformBuffers.cpp">
+      <Filter>소스 파일\Main\Pipeline</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>소스 파일\Game\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>소스 파일\Game\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="ComponentBehavior.cpp">
+      <Filter>소스 파일\Game\Component\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerController.cpp">
+      <Filter>소스 파일\Game\Component\Player</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Application.h">
-      <Filter>소스 파일\Main</Filter>
-    </ClInclude>
-    <ClInclude Include="BufferManip.h">
-      <Filter>소스 파일\Main</Filter>
-    </ClInclude>
-    <ClInclude Include="CommandBuffers.h">
-      <Filter>소스 파일\Main</Filter>
-    </ClInclude>
-    <ClInclude Include="CommandPool.h">
-      <Filter>소스 파일\Main</Filter>
-    </ClInclude>
-    <ClInclude Include="Debug.h">
-      <Filter>소스 파일\Main</Filter>
-    </ClInclude>
-    <ClInclude Include="DepthImage.h">
-      <Filter>소스 파일\Main</Filter>
-    </ClInclude>
-    <ClInclude Include="DescriptorSets.h">
-      <Filter>소스 파일\Main</Filter>
-    </ClInclude>
-    <ClInclude Include="Devices.h">
-      <Filter>소스 파일\Main</Filter>
-    </ClInclude>
-    <ClInclude Include="Framebuffers.h">
-      <Filter>소스 파일\Main</Filter>
-    </ClInclude>
-    <ClInclude Include="GraphicsPipeline.h">
-      <Filter>소스 파일\Main</Filter>
-    </ClInclude>
-    <ClInclude Include="IApplication.h">
-      <Filter>소스 파일\Main</Filter>
-    </ClInclude>
-    <ClInclude Include="Instance.h">
-      <Filter>소스 파일\Main</Filter>
-    </ClInclude>
-    <ClInclude Include="Mesh.h">
-      <Filter>소스 파일\Main</Filter>
-    </ClInclude>
-    <ClInclude Include="Model.h">
-      <Filter>소스 파일\Main</Filter>
-    </ClInclude>
-    <ClInclude Include="Surface.h">
-      <Filter>소스 파일\Main</Filter>
-    </ClInclude>
-    <ClInclude Include="SwapChain.h">
-      <Filter>소스 파일\Main</Filter>
-    </ClInclude>
-    <ClInclude Include="SyncObjects.h">
-      <Filter>소스 파일\Main</Filter>
-    </ClInclude>
-    <ClInclude Include="Texture.h">
-      <Filter>소스 파일\Main</Filter>
-    </ClInclude>
-    <ClInclude Include="UniformBuffers.h">
-      <Filter>소스 파일\Main</Filter>
-    </ClInclude>
     <ClInclude Include="Utils.h">
       <Filter>소스 파일\Main</Filter>
-    </ClInclude>
-    <ClInclude Include="Vertex.h">
-      <Filter>소스 파일\Main</Filter>
-    </ClInclude>
-    <ClInclude Include="Window.h">
-      <Filter>소스 파일\Main</Filter>
-    </ClInclude>
-    <ClInclude Include="Libraries.h">
-      <Filter>소스 파일\Main</Filter>
-    </ClInclude>
-    <ClInclude Include="Camera.h">
-      <Filter>소스 파일\Game</Filter>
     </ClInclude>
     <ClInclude Include="GameMain.h">
       <Filter>소스 파일\Game</Filter>
     </ClInclude>
-    <ClInclude Include="ShipObject.h">
-      <Filter>소스 파일\Game</Filter>
+    <ClInclude Include="Application.h">
+      <Filter>소스 파일\Main\App</Filter>
     </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>소스 파일\Main\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.h">
+      <Filter>소스 파일\Main\App</Filter>
+    </ClInclude>
+    <ClInclude Include="IApplication.h">
+      <Filter>소스 파일\Main\App</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>소스 파일\Main\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="Model.h">
+      <Filter>소스 파일\Main\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="Instance.h">
+      <Filter>소스 파일\Main\App</Filter>
+    </ClInclude>
+    <ClInclude Include="Vertex.h">
+      <Filter>소스 파일\Main\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="BufferManip.h">
+      <Filter>소스 파일\Main\Pipeline</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandBuffers.h">
+      <Filter>소스 파일\Main\Pipeline</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandPool.h">
+      <Filter>소스 파일\Main\Pipeline</Filter>
+    </ClInclude>
+    <ClInclude Include="Debug.h">
+      <Filter>소스 파일\Main\Pipeline</Filter>
+    </ClInclude>
+    <ClInclude Include="DepthImage.h">
+      <Filter>소스 파일\Main\Pipeline</Filter>
+    </ClInclude>
+    <ClInclude Include="DescriptorSets.h">
+      <Filter>소스 파일\Main\Pipeline</Filter>
+    </ClInclude>
+    <ClInclude Include="Devices.h">
+      <Filter>소스 파일\Main\Pipeline</Filter>
+    </ClInclude>
+    <ClInclude Include="Framebuffers.h">
+      <Filter>소스 파일\Main\Pipeline</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsPipeline.h">
+      <Filter>소스 파일\Main\Pipeline</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries.h">
+      <Filter>소스 파일\Main\Pipeline</Filter>
+    </ClInclude>
+    <ClInclude Include="Surface.h">
+      <Filter>소스 파일\Main\Pipeline</Filter>
+    </ClInclude>
+    <ClInclude Include="SwapChain.h">
+      <Filter>소스 파일\Main\Pipeline</Filter>
+    </ClInclude>
+    <ClInclude Include="SyncObjects.h">
+      <Filter>소스 파일\Main\Pipeline</Filter>
+    </ClInclude>
+    <ClInclude Include="UniformBuffers.h">
+      <Filter>소스 파일\Main\Pipeline</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>소스 파일\Game\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>소스 파일\Game\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentBehavior.h">
+      <Filter>소스 파일\Game\Component\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerController.h">
+      <Filter>소스 파일\Game\Component\Player</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

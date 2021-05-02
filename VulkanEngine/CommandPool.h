@@ -1,5 +1,5 @@
-#ifndef COMMAND_POOL_HPP
-# define COMMAND_POOL_HPP
+#ifndef COMMAND_POOL_H
+# define COMMAND_POOL_H
 
 #include "Libraries.h"
 #include "Utils.h"

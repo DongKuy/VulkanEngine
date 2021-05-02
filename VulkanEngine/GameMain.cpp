@@ -1,4 +1,5 @@
 #include "GameMain.h"
+#include "PlayerController.h"
 
 scene::GameMain* scene::GameMain::_instance = NULL;
 scene::GameMain::GameMain() : renderer::Application("NoEngine") {
@@ -11,13 +12,15 @@ void scene::GameMain::initModels() {
     const size_t planeNb = 30;
     glm::vec3 position = glm::vec3(1.0f, 3.f, 2.f);
 
-	_models.push_back(std::make_unique<ShipObject>(ShipObject(renderer::MODELTYPE[0], renderer::MODELKEY[0])));
+    auto newObject = GameObject(renderer::MODELTYPE[0], renderer::MODELKEY[0]);
+    newObject.AddComponent(new PlayerController());
+	_models.push_back(std::make_unique<GameObject>(newObject));
     _models.back()->setPosition(position);
     _models.back()->setOrientation(glm::vec3(0, 180, 0));
 
     for (int i = 0; i < 70; i++)
     {
-        _models.push_back(std::make_unique<ShipObject>(ShipObject(renderer::MODELTYPE[1], renderer::MODELKEY[1])));
+        _models.push_back(std::make_unique<GameObject>(GameObject(renderer::MODELTYPE[1], renderer::MODELKEY[1])));
         _models.back()->setPosition(glm::vec3(rand() % 30 - 15, 0.f, rand() % 30 - 15));
         _models.back()->setOrientation(glm::vec3(0, rand() % 360, 0));
     }

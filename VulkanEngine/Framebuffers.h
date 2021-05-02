@@ -1,5 +1,5 @@
-#ifndef FRAMEBUFFERS_HPP
-# define FRAMEBUFFERS_HPP
+#ifndef FRAMEBUFFERS_H
+# define FRAMEBUFFERS_H
 
 #include <vector>
 #include <array>

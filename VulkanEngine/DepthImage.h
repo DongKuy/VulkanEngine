@@ -1,5 +1,5 @@
-#ifndef DEPTH_IMAGE_HPP
-# define DEPTH_IMAGE_HPP
+#ifndef DEPTH_IMAGE_H
+# define DEPTH_IMAGE_H
 
 #include "BufferManip.h"
 #include "Devices.h"

@@ -1,5 +1,5 @@
-#ifndef BUFFER_MANIP_HPP
-# define BUFFER_MANIP_HPP
+#ifndef BUFFER_MANIP_H
+# define BUFFER_MANIP_H
 
 #include "Devices.h"
 #include "Utils.h"

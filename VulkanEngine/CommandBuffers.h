@@ -1,5 +1,5 @@
-#ifndef COMMAND_BUFFERS_HPP
-# define COMMAND_BUFFERS_HPP
+#ifndef COMMAND_BUFFERS_H
+# define COMMAND_BUFFERS_H
 
 #include <vector>
 #include <array>

@@ -1,5 +1,5 @@
-#ifndef VERTEX_HPP
-# define VERTEX_HPP
+#ifndef VERTEX_H
+# define VERTEX_H
 
 #include <array>
 

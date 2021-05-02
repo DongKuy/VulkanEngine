@@ -1,5 +1,5 @@
-#ifndef UNIFORM_BUFFERS_HPP
-# define UNIFORM_BUFFERS_HPP
+#ifndef UNIFORM_BUFFERS_H
+# define UNIFORM_BUFFERS_H
 
 #include <vector>
 #include <array>

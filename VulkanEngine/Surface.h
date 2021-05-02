@@ -1,5 +1,5 @@
-#ifndef SURFACE_HPP
-# define SURFACE_HPP
+#ifndef SURFACE_H
+# define SURFACE_H
 
 #include <set>
 

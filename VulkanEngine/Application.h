@@ -1,5 +1,5 @@
-#ifndef APPLICATION_HPP
-# define APPLICATION_HPP
+#ifndef APPLICATION_H
+# define APPLICATION_H
 
 #include <unordered_map>
 

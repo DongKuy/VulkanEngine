@@ -39,7 +39,10 @@ namespace renderer {
         const ModelType _type;
         const std::unordered_map<ModelType, std::string> _modelFile = {
                 {ModelType::SHIPMODEL, "Models/99-intergalactic_spaceship-obj/Intergalactic_Spaceship-(Wavefront).obj"},
-                {ModelType::CASAMODEL, "Models/low_poly_tree/Lowpoly_tree_sample.obj"}
+                {ModelType::CASAMODEL, "Models/low_poly_tree/Lowpoly_tree_sample.obj"},
+                {ModelType::CUBEMAPMODEL, "Models/Grass/10438_Circular_Grass_Patch_v1_iterations-2.obj"},
+                {ModelType::BULLETMODEL, "Models/cube/cubemap.obj"},
+                {ModelType::EARTHMODEL, "Models/earth/1Earth-made-by-ELITE3d/Model/Globe.obj"}
         };
 
     };

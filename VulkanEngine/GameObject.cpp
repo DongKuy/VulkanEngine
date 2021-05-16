@@ -6,9 +6,19 @@ scene::GameObject::GameObject(renderer::ModelType modelType, renderer::ModelKey 
 }
 
 void scene::GameObject::update(renderer::Models_t &models) {
+    if (!_isActivation)return;
+
     for (auto& component : _components)
     {
         component->update(*this);
+    }
+}
+
+void scene::GameObject::OnEntranceCollider(Model& model)
+{
+    if (model.Tag == 1)
+    {
+        model.setActivation(false);
     }
 }
 

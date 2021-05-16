@@ -43,6 +43,15 @@
     <Filter Include="소스 파일\Game\Component\Player">
       <UniqueIdentifier>{833fcc89-a72f-4ff2-98bb-8b1d47a13985}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Game\Component\CameraFollowing">
+      <UniqueIdentifier>{794e3358-df15-4ae7-b801-8bf3676a44d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Game\Component\TestComponent">
+      <UniqueIdentifier>{ffe0b202-f541-427f-9559-3cc392d7dd85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Game\Component\Bullet">
+      <UniqueIdentifier>{49154a6d-e678-4404-814b-19dcaca69e18}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Utils.cpp">
@@ -122,6 +131,15 @@
     </ClCompile>
     <ClCompile Include="PlayerController.cpp">
       <Filter>소스 파일\Game\Component\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraFollowing.cpp">
+      <Filter>소스 파일\Game\Component\CameraFollowing</Filter>
+    </ClCompile>
+    <ClCompile Include="TestComponent.cpp">
+      <Filter>소스 파일\Game\Component\TestComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>소스 파일\Game\Component\Bullet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -208,6 +226,15 @@
     </ClInclude>
     <ClInclude Include="PlayerController.h">
       <Filter>소스 파일\Game\Component\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraFollowing.h">
+      <Filter>소스 파일\Game\Component\CameraFollowing</Filter>
+    </ClInclude>
+    <ClInclude Include="TestComponent.h">
+      <Filter>소스 파일\Game\Component\TestComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>소스 파일\Game\Component\Bullet</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

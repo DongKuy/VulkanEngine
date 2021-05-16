@@ -20,13 +20,13 @@ namespace renderer {
 
         VkPipeline &get();
         VkRenderPass &getRenderPass();
-        VkPipelineLayout &getLayout();
+        VkPipelineLayout& getLayout();
         VkDescriptorSetLayout &getDescriptorSetLayout();
 
     private:
         void createRenderPass(Devices &device, SwapChain &swapChain);
         void createDescriptorSetLayout(VkDevice &device);
-        void createGraphicsPipeline(VkDevice &device, SwapChain &swapChain);
+        void createGraphicsPipeline(VkDevice &device, SwapChain &swapChain,std::string frag,std::string vert);
 
         static VkShaderModule createShaderModule(VkDevice &device, const std::vector<char>& code);
 

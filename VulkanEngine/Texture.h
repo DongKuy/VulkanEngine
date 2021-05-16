@@ -35,7 +35,10 @@ namespace renderer {
         const ModelKey _key;
         const std::unordered_map<ModelKey, std::string> _textureFile = {
                 {ModelKey::SHIP, "Models/99-intergalactic_spaceship-obj/textures/Intergalactic Spaceship_color_4.jpg"},
-                {ModelKey::CASA, "Models/10450_Rectangular_Grass_Patch_L3.123c827d110a-1347-4381-9208-e4f735762647/10450_Rectangular_Grass_Patch_v1_Diffuse.jpg"}
+                {ModelKey::CASA, "Models/Grass/10450_Rectangular_Grass_Patch_v1_Diffuse.jpg"},
+                {ModelKey::CUBEMAP, "Models/Grass/10450_Rectangular_Grass_Patch_v1_Diffuse.jpg"},
+				{ModelKey::BULLET, "Models/cube/cubemap_b.png"},
+                {ModelKey::EART, "Models/cube/cubemap_b.png"}
         };
     };
 

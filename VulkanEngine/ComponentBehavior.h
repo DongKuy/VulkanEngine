@@ -8,6 +8,8 @@ namespace scene {
 	class GameObject;
 	class ComponentBehavior
 	{
+	protected:
+		GameObject* _gameobject;
 	public:
 		explicit ComponentBehavior();
 		virtual ~ComponentBehavior() = default;

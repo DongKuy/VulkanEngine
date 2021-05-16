@@ -17,10 +17,13 @@ namespace scene {
         ~GameObject() override = default;
 
         void update(renderer::Models_t &models) override;
+        void OnEntranceCollider(Model& model)override; 
         void updateUniformBuffer(VkDevice &device, uint32_t currentImage) override;
 
         template <class T>
         void AddComponent(T newComponent);
+        ComponentBehavior* GetConponents(int index) { return _components[index]; }
+
 
     private:
         ComponentBehaviors_t _components;
@@ -29,7 +32,6 @@ namespace scene {
     inline void GameObject::AddComponent(T newComponent)
     {
         _components.push_back(newComponent);
-        std::cout << "컴포넌트 추가" << std::endl;
     }
 }
 

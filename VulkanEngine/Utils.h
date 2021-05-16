@@ -17,8 +17,8 @@ namespace renderer {
     const float PI = 3.14159265358979323846264338327950288f;
 
     const std::string PATH = "../Resources/";
-    //const VkClearColorValue BACKGROUND_COLOR = {0.61f, 0.76f, 0.82f, 1.0f};
-    const VkClearColorValue BACKGROUND_COLOR = {0.f, 0.f, 0.f, 1.0f};
+    const VkClearColorValue BACKGROUND_COLOR = {0.61f, 0.76f, 0.82f, 1.0f};
+    //const VkClearColorValue BACKGROUND_COLOR = {0.f, 0.f, 0.f, 1.0f};
 
     const std::vector<const char*> validationLayers = {
             "VK_LAYER_KHRONOS_validation"
@@ -54,16 +54,22 @@ namespace renderer {
 
     enum ModelType {
         SHIPMODEL,
-        CASAMODEL
+        CASAMODEL,
+        CUBEMAPMODEL,
+        BULLETMODEL,
+        EARTHMODEL
     };
 
     enum ModelKey {
         SHIP,
-        CASA
+        CASA,
+        CUBEMAP,
+        BULLET,
+        EART
     };
 
-    const ModelType MODELTYPE[] = { SHIPMODEL, CASAMODEL };
-    const ModelKey MODELKEY[] = { SHIP, CASA };
+    const ModelType MODELTYPE[] = { SHIPMODEL, CASAMODEL,CUBEMAPMODEL, BULLETMODEL,EARTHMODEL };
+    const ModelKey MODELKEY[] = { SHIP, CASA,CUBEMAP,BULLET,EART };
 
     std::vector<char> readFile(const std::string& filename);
     VkFormat findDepthFormat(VkPhysicalDevice &device);

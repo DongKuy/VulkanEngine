@@ -23,7 +23,7 @@ void renderer::Application::initVulkan() {
 }
 
 void renderer::Application::initModels() {
-    const ModelType allType[] = { SHIPMODEL,CASAMODEL };
+    const ModelType allType[] = { SHIPMODEL,CASAMODEL,CUBEMAPMODEL,BULLETMODEL, EARTHMODEL };
 
     for (const auto &type : allType) {
         _meshes.emplace(type, Mesh(type));
@@ -88,7 +88,6 @@ void renderer::Application::recreateSwapChain() {
     cleanupSwapChain();
 
     _swapChain.setUp(_window.get(), _surface, _devices);
-    _pipeline.setUp(_devices, _swapChain);
     _depthImage.setUp(_devices, _swapChain.getExtent());
     _framebuffers.setUp(_devices.get(), _swapChain, _pipeline.getRenderPass(), _depthImage.get());
     for (auto &model : _models)

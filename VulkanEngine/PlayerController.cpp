@@ -1,6 +1,13 @@
 #include "PlayerController.h"
 #include "GameObject.h"
 #include "GameMain.h"
+#include "Bullet.h"
+
+double timer = glfwGetTime();
+scene::PlayerController::PlayerController()
+{
+	setUp();
+}
 
 void scene::PlayerController::setUp()
 {
@@ -12,12 +19,17 @@ void scene::PlayerController::release()
 	std::cout << "palyer controller release" << std::endl;
 }
 
+bool isPressKey = false;
 void scene::PlayerController::update(GameObject& gameObejct)
 {
+	double currentTime = glfwGetTime();
+	double frameTime = currentTime - timer;
+	timer = currentTime;
+
 	scene::GameMain& app = scene::GameMain::Get();
 	auto pos = gameObejct.getPosition();
 
-	float maxSpeed = 0.5f;
+	float maxSpeed = 0.9f;
 	if (app.GetKeyDown(GLFW_KEY_UP))
 	{
 		pos += glm::vec3(0, 0, -0.1f * maxSpeed);
@@ -44,10 +56,27 @@ void scene::PlayerController::update(GameObject& gameObejct)
 		pos += glm::vec3(0, -0.1f * maxSpeed, 0);
 	}
 
-	gameObejct.setPosition(pos);
+	static float counter = 0.f;
+	counter += frameTime;
+	if (app.GetKeyDown(GLFW_KEY_LEFT_CONTROL)&&!isPressKey&& counter>0.1f)
+	{
+		counter = 0.f;
+		for(auto &item : _bulletList)
+		{
+			if (!item->IsAlive)
+			{
+				item->OnBullet(pos);
+				break;
+			}
+		}
+	}
+	
 
-	app.SetCameraLookAtTarget(true);
-	app.SetCameraTarget(pos);
-	app.SetCameraPosition(pos + glm::vec3(0.f, 1.3f, 3.5f));
+	gameObejct.setPosition(pos);
 	app.LightPos = pos;
+}
+
+void scene::PlayerController::AddBullet(Bullet* newBullet)
+{
+	_bulletList.push_back(newBullet);
 }

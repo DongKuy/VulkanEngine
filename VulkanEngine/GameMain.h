@@ -44,7 +44,7 @@ namespace scene {
 
         glm::vec3 LightPos;
         glm::vec3 LightColor = glm::vec3(1,1,1);
-        float LightPow = 0.8;
+        float LightPow = 3.8;
 
     private:
         void initModels() override;

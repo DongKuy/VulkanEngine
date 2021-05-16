@@ -3,7 +3,7 @@
 void renderer::GraphicsPipeline::setUp(Devices &device, SwapChain &swapChain) {
     createRenderPass(device, swapChain);
     createDescriptorSetLayout(device.get());
-    createGraphicsPipeline(device.get(), swapChain);
+    createGraphicsPipeline(device.get(), swapChain, "frag", "vert");
 }
 
 void renderer::GraphicsPipeline::createRenderPass(Devices &device, SwapChain &swapChain) {
@@ -90,9 +90,11 @@ void renderer::GraphicsPipeline::createDescriptorSetLayout(VkDevice &device) {
 
 }
 
-void renderer::GraphicsPipeline::createGraphicsPipeline(VkDevice &device, SwapChain &swapChain) {
-    auto vertShaderCode = readFile("Shaders/vert.spv");
-    auto fragShaderCode = readFile("Shaders/frag.spv");
+void renderer::GraphicsPipeline::createGraphicsPipeline(VkDevice &device, SwapChain &swapChain, std::string frag, std::string vert) {
+    const int pushSize = (16 + 1) * 4;
+
+    auto vertShaderCode = readFile("Shaders/"+ vert +".spv");
+    auto fragShaderCode = readFile("Shaders/"+frag+".spv");
 
     VkShaderModule vertShaderModule = createShaderModule(device, vertShaderCode);
     VkShaderModule fragShaderModule = createShaderModule(device, fragShaderCode);
@@ -152,7 +154,7 @@ void renderer::GraphicsPipeline::createGraphicsPipeline(VkDevice &device, SwapCh
     rasterizer.rasterizerDiscardEnable = VK_FALSE;
     rasterizer.polygonMode = VK_POLYGON_MODE_FILL;
     rasterizer.lineWidth = 1.0f;
-    rasterizer.cullMode = VK_CULL_MODE_BACK_BIT;
+    rasterizer.cullMode = VK_CULL_MODE_NONE;
     rasterizer.frontFace = VK_FRONT_FACE_COUNTER_CLOCKWISE;
     rasterizer.depthBiasEnable = VK_FALSE;
     rasterizer.depthBiasConstantFactor = 0.0f;
@@ -192,8 +194,20 @@ void renderer::GraphicsPipeline::createGraphicsPipeline(VkDevice &device, SwapCh
 
     VkPipelineLayoutCreateInfo pipelineLayoutInfo = {};
     pipelineLayoutInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO;
+    VkPushConstantRange pushConstantRange = {};
+
     pipelineLayoutInfo.setLayoutCount = 1;
     pipelineLayoutInfo.pSetLayouts = &_descriptorSetLayout;
+    pipelineLayoutInfo.pushConstantRangeCount = 0;
+    if (pushSize > 0)
+    {
+        pipelineLayoutInfo.pushConstantRangeCount = 1;
+        pushConstantRange.stageFlags = VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT;
+        pushConstantRange.offset = 0;
+        pushConstantRange.size = static_cast<uint32_t>(pushSize);
+
+        pipelineLayoutInfo.pPushConstantRanges = &pushConstantRange;
+    }
 
     if (vkCreatePipelineLayout(device, &pipelineLayoutInfo, nullptr, &_pipelineLayout) != VK_SUCCESS)
         throw std::runtime_error("파이프 라인 레이아웃을 생성하지 못했습니다.");

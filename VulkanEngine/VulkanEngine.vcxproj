@@ -126,13 +126,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\VulkanSDK\1.2.170.0\Include;C:\Users\dskdg\Documents\Visual Studio 2019\Libraries\glm;C:\Users\dskdg\Documents\Visual Studio 2019\Libraries\glfw-3.3.3.bin.WIN64\include;C:\Users\dskdg\Documents\Visual Studio 2019\Libraries\stb-master;C:\Users\dskdg\Documents\Visual Studio 2019\Libraries\tinyobjloader-master;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\VulkanSDK\1.2.170.0\Include;C:\Users\dskdg\Documents\Visual Studio 2019\Libraries\glm;C:\Users\dskdg\Documents\Visual Studio 2019\Libraries\glfw-3.3.3.bin.WIN64\include;C:\Users\dskdg\Documents\Visual Studio 2019\Libraries\stb-master;C:\Users\dskdg\Documents\Visual Studio 2019\Libraries\tinyobjloader-master;C:\Program Files\Assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\VulkanSDK\1.2.170.0\Lib;C:\Users\dskdg\Documents\Visual Studio 2019\Libraries\glfw-3.3.3.bin.WIN64\lib-vc2019;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\VulkanSDK\1.2.170.0\Lib;C:\Users\dskdg\Documents\Visual Studio 2019\Libraries\glfw-3.3.3.bin.WIN64\lib-vc2019;C:\Program Files\Assimp\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>vulkan-1.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -144,7 +144,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\VulkanSDK\1.2.170.0\Include;C:\Users\dskdg\Documents\Visual Studio 2019\Libraries\glm;C:\Users\dskdg\Documents\Visual Studio 2019\Libraries\glfw-3.3.3.bin.WIN64\include;C:\Users\dskdg\Documents\Visual Studio 2019\Libraries\stb-master;C:\Users\dskdg\Documents\Visual Studio 2019\Libraries\tinyobjloader-master;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\VulkanSDK\1.2.170.0\Include;C:\Users\dskdg\Documents\Visual Studio 2019\Libraries\glm;C:\Users\dskdg\Documents\Visual Studio 2019\Libraries\glfw-3.3.3.bin.WIN64\include;C:\Users\dskdg\Documents\Visual Studio 2019\Libraries\stb-master;C:\Users\dskdg\Documents\Visual Studio 2019\Libraries\tinyobjloader-master;C:\Program Files\Assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -152,14 +152,16 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\VulkanSDK\1.2.170.0\Lib;C:\Users\dskdg\Documents\Visual Studio 2019\Libraries\glfw-3.3.3.bin.WIN64\lib-vc2019;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\VulkanSDK\1.2.170.0\Lib;C:\Users\dskdg\Documents\Visual Studio 2019\Libraries\glfw-3.3.3.bin.WIN64\lib-vc2019;C:\Program Files\Assimp\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>vulkan-1.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="BufferManip.cpp" />
+    <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="CameraFollowing.cpp" />
     <ClCompile Include="CommandBuffers.cpp" />
     <ClCompile Include="CommandPool.cpp" />
     <ClCompile Include="ComponentBehavior.cpp" />
@@ -179,6 +181,7 @@
     <ClCompile Include="Surface.cpp" />
     <ClCompile Include="SwapChain.cpp" />
     <ClCompile Include="SyncObjects.cpp" />
+    <ClCompile Include="TestComponent.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="UniformBuffers.cpp" />
     <ClCompile Include="Utils.cpp" />
@@ -187,7 +190,9 @@
   <ItemGroup>
     <ClInclude Include="Application.h" />
     <ClInclude Include="BufferManip.h" />
+    <ClInclude Include="Bullet.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="CameraFollowing.h" />
     <ClInclude Include="CommandBuffers.h" />
     <ClInclude Include="CommandPool.h" />
     <ClInclude Include="ComponentBehavior.h" />
@@ -208,6 +213,7 @@
     <ClInclude Include="Surface.h" />
     <ClInclude Include="SwapChain.h" />
     <ClInclude Include="SyncObjects.h" />
+    <ClInclude Include="TestComponent.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="UniformBuffers.h" />
     <ClInclude Include="Utils.h" />

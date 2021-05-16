@@ -27,15 +27,21 @@ namespace renderer {
 
         void setPosition(glm::vec3 position);
         void setOrientation(glm::vec3 orientation);
+        void setScale(float s);
         void setCamera(scene::Camera_ptr_t &_camera, float ratio);
+        void setActivation(bool isOn);
 
         virtual void update(std::vector<std::unique_ptr<Model>> &models);
         virtual void updateUniformBuffer(VkDevice &device, uint32_t currentImage);
+        virtual void updateCollider(std::vector<std::unique_ptr<Model>>& models);
+        virtual void OnEntranceCollider(Model& model);
 
         size_t getId() const;
         glm::vec3 getPosition() const;
         glm::vec3 getVelocity() const;
         ModelType getModelType() const;
+        bool getActivation() const;
+        int Tag = 0;
         VkDescriptorSet &getDescriptorSet(size_t i);
 
     protected:
@@ -43,6 +49,8 @@ namespace renderer {
         glm::vec3 _position = glm::vec3(0.0f, 0.0f, 0.0f);
         glm::vec3 _orientation = glm::vec3(0.0f, 0.0f, 0.0f);
         glm::vec3 _offset = glm::vec3(0.0f, 0.5f, 0.0f);
+        glm::mat4 _scale = glm::mat4(1.0f);
+        bool _isActivation = true;
 
     private:
         const size_t _id;

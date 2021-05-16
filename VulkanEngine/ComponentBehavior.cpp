@@ -2,7 +2,6 @@
 
 scene::ComponentBehavior::ComponentBehavior()
 {
-	std::cout << "test" << std::endl;
 	Init();
 	setUp();
 }

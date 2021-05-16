@@ -52,6 +52,7 @@ namespace renderer {
     protected:
         Window _window;
         SwapChain _swapChain;
+        SwapChain _SkyBoxSwapChain;
         Models_t _models;
 
     private:

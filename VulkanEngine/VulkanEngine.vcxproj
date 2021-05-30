@@ -178,6 +178,7 @@
     <ClCompile Include="GameMain.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="PlayerController.cpp" />
+    <ClCompile Include="Rigdbody.cpp" />
     <ClCompile Include="Surface.cpp" />
     <ClCompile Include="SwapChain.cpp" />
     <ClCompile Include="SyncObjects.cpp" />
@@ -210,6 +211,7 @@
     <ClInclude Include="GameMain.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="PlayerController.h" />
+    <ClInclude Include="Rigdbody.h" />
     <ClInclude Include="Surface.h" />
     <ClInclude Include="SwapChain.h" />
     <ClInclude Include="SyncObjects.h" />

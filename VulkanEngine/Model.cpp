@@ -41,6 +41,11 @@ void renderer::Model::setActivation(bool isOn)
     _isActivation = isOn;
 }
 
+void renderer::Model::setVelocity(glm::vec3 v)
+{
+    _velocity = v;
+}
+
 void renderer::Model::update(std::vector<std::unique_ptr<Model>> &models) {}
 
 void renderer::Model::updateUniformBuffer(VkDevice &device, uint32_t currentImage) {
@@ -73,9 +78,9 @@ void renderer::Model::updateCollider(std::vector<std::unique_ptr<Model>>& models
     if (!_isActivation||Tag==0)return;
     for (auto& m : models)
     {
-        if (m->getId() == getId() || m->Tag==Tag||!m->_isActivation)continue;
+        if (m->getId() == getId()||!m->_isActivation)continue;
         float d = glm::distance(_position, m->getPosition());
-        if (d <= 2.f)
+        if (d <= 3.f)
         {
             OnEntranceCollider(*m);
             return;

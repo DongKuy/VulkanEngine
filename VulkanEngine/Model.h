@@ -30,6 +30,7 @@ namespace renderer {
         void setScale(float s);
         void setCamera(scene::Camera_ptr_t &_camera, float ratio);
         void setActivation(bool isOn);
+        void setVelocity(glm::vec3 v);
 
         virtual void update(std::vector<std::unique_ptr<Model>> &models);
         virtual void updateUniformBuffer(VkDevice &device, uint32_t currentImage);

@@ -18,7 +18,16 @@ void scene::GameObject::OnEntranceCollider(Model& model)
 {
     if (model.Tag == 1)
     {
-        model.setActivation(false);
+        auto tPos= model.getPosition();
+        auto dPos = tPos - _position;
+        auto n = glm::normalize(dPos) * 0.5f;
+        auto tV = model.getVelocity();
+        tV.x += n.x;
+        tV.y += n.y;
+        model.setVelocity(tV);
+
+        _velocity.x -= n.x;
+        _velocity.y -= n.y;
     }
 }
 

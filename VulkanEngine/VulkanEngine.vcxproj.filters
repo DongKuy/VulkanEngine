@@ -52,6 +52,9 @@
     <Filter Include="소스 파일\Game\Component\Bullet">
       <UniqueIdentifier>{49154a6d-e678-4404-814b-19dcaca69e18}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Game\Component\Rigdbody">
+      <UniqueIdentifier>{18c2c898-582a-451e-a050-0aba8f9aa988}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Utils.cpp">
@@ -140,6 +143,9 @@
     </ClCompile>
     <ClCompile Include="Bullet.cpp">
       <Filter>소스 파일\Game\Component\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Rigdbody.cpp">
+      <Filter>소스 파일\Game\Component\Rigdbody</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -235,6 +241,9 @@
     </ClInclude>
     <ClInclude Include="Bullet.h">
       <Filter>소스 파일\Game\Component\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Rigdbody.h">
+      <Filter>소스 파일\Game\Component\Rigdbody</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

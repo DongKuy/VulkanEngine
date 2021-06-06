@@ -16,10 +16,10 @@ void scene::GameMain::initModels() {
 
     glm::vec3 position = glm::vec3(1.0f, 5.5f, 2.f);
 
-   /* auto cube = GameObject(renderer::MODELTYPE[2], renderer::MODELKEY[2]);
+    auto cube = GameObject(renderer::MODELTYPE[2], renderer::MODELKEY[2]);
     _models.push_back(std::make_unique<GameObject>(cube));
-    _models.back()->setPosition(glm::vec3(0, 0, 0));
-    _models.back()->setOrientation(glm::vec3(-90, 0, 0));*/
+    _models.back()->setPosition(glm::vec3(0, -10, 0));
+    _models.back()->setOrientation(glm::vec3(-90, 0, 0));
 
     auto pc = new PlayerController();
 
